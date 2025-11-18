@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="getting-started-app">getting-started-app</h1>
+<h1 id="containerizing-a-spring-boot-application-with-docker">Containerizing a Spring Boot Application with Docker</h1>
+<h2 id="containerize-an-application">Containerize an application</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You have installed the latest version of Docker Desktop.
+You have installed a Git client.
+You have an IDE or a text editor to edit files. Docker recommends using Intellij.</p>
+<h3 id="get-the-app">Get the app</h3>
+<p>Before you can run the application, you need to get the application source code onto your machine.
+Clone the getting-started-app repository using the following command:</p>
+<p>Use <code>git clone https://github.com/AnouarMantich/getting-started-app</code> to clone the repository.</p>
+<h3 id="build-the-apps-image">Build the app's image</h3>
+<p>To build the image, you'll need to use a Dockerfile. A Dockerfile is simply a text-based file with no file extension that contains a script of instructions. Docker uses this script to build a container image.</p>
+<ol>
+<li>In the getting-started-app directory create a file named Dockerfile with the following contents:</li>
+</ol>
+<pre class="hljs"><code><div>WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+COPY src ./src
+RUN mvn clean package
+
+FROM eclipse-temurin:21-jdk AS runner
+WORKDIR /app
+COPY --from=builder /app/target/*.jar ./app.jar
+EXPOSE 8080
+ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]
+</div></code></pre>
+<p>This Dockerfile builds a Spring Boot application using a multi-stage build.
+First, it uses a Maven image to compile and package the project, downloading dependencies and building the JAR file.
+Then, it switches to a lightweight JDK runtime image and copies the built JAR from the builder stage.
+The container exposes port 8080 and starts the application using java -jar app.jar.
+This approach reduces the final image size and improves build efficiency.</p>
+<ol start="2">
+<li>Build the image using the following commands:</li>
+</ol>
+<p>In the terminal, make sure you're in the getting-started-app directory.</p>
+<p><code>cd /path/to/getting-started-app</code></p>
+<p>Build the image.</p>
+<p><code>docker build -t getting-started .</code></p>
+<p>The docker build command uses this Dockerfile to create a new image using a multi-stage build. First, Docker pulls the maven:3.9.9-eclipse-temurin-21 image and uses it to compile the application and package it into a JAR file. Once the build is complete, the second stage switches to a lighter eclipse-temurin:21-jdk image and copies the generated JAR into a clean runtime environment. The EXPOSE 8080 instruction indicates that the application will run on port 8080, and the ENTRYPOINT command starts the Spring Boot application with java -jar app.jar. Using multi-stage builds keeps the final image small and efficient while separating build dependencies from the runtime environment.</p>
+<h3 id="start-an-app-container">Start an app container</h3>
+<p>Now that you have an image, you can run the application in a container using the docker run command.</p>
+<ol>
+<li>Run your container using the docker run command and specify the name of the image you just created:</li>
+</ol>
+<p><code>docker run -d -p 127.0.0.1:8080:8080 getting-started</code></p>
+<p>The -d flag (short for --detach) runs the container in the background. This means that Docker starts your container and returns you to the terminal prompt. Also, it does not display logs in the terminal.</p>
+<p>The -p flag (short for --publish) creates a port mapping between the host and the container. The -p flag takes a string value in the format of HOST:CONTAINER, where HOST is the address on the host, and CONTAINER is the port on the container. The command publishes the container's port 8080 to 127.0.0.1:8080 (localhost:8080) on the host. Without the port mapping, you wouldn't be able to access the application from the host.</p>
+<p>2 .After a few seconds, open your web browser to http://localhost:8080. You should see your message from the spring app.</p>
+<p><img src="docker1.png" alt="alt text"></p>
+<p>At this point, you have a running spring boot app .
+If you take a quick look at your containers, you should see at least one container running that's using the getting-started image and on port 8080. To see your containers, you can use the CLI or Docker Desktop's graphical interface.</p>
+<p>Run the docker ps command in a terminal to list your containers.</p>
+<p><code> docker ps</code></p>
+<p>Output similar to the following should appear.</p>
+<p><img src="container-running.png" alt="container-running"></p>
+<h3 id="summary">Summary</h3>
+<p>In this section, you learned the basics about creating a Dockerfile to build an image. Once you built an image, you started a container and saw the running app.</p>
+<h3 id="next-step">Next step</h3>
+<p>Next, you're going to make a modification to your app and learn how to update your running application with a new image. Along the way, you'll learn a few other useful commands.</p>
+<h2 id="update-the-application">Update the application</h2>
+<p>In part 1, you containerized a spring boot application. In this part, you'll update the application and image. You'll also learn how to stop and remove a container.</p>
+<h3 id="update-the-source-code">Update the source code</h3>
+<ol>
+<li>
+<p>In the following steps, you'll make some changes to the app , just open the project in intellij and alter the message stored in the varible application.message</p>
+</li>
+<li>
+<p>Build your updated version of the image, using the docker build command.</p>
+</li>
+</ol>
+<p><code>docker build -t getting-started .</code></p>
+<ol start="3">
+<li>Start a new container using the updated code.
+<code>docker run -dp 127.0.0.1:8080:8080 getting-started</code></li>
+</ol>
+<p>You probably saw an error like this:</p>
+<p><img src="error.png" alt="alt text"></p>
+<p>The error occurred because you aren't able to start the new container while your old container is still running. The reason is that the old container is already using the host's port 8080 and only one process on the machine (containers included) can listen to a specific port. To fix this, you need to remove the old container.</p>
+<h3 id="remove-the-old-container">Remove the old container</h3>
+<p>To remove a container, you first need to stop it. Once it has stopped, you can remove it. You can remove the old container using the CLI or Docker Desktop's graphical interface. Choose the option that you're most comfortable with.</p>
+<p>Remove a container using the CLI :</p>
+<ol>
+<li>
+<p>Get the ID of the container by using the docker ps command.</p>
+<p><code>docker ps</code></p>
+</li>
+<li>
+<p>Use the docker stop command to stop the container. Replace <the-container-id> with the ID from docker ps.</p>
+<p><code>docker stop &lt;the-container-id&gt;</code></p>
+</li>
+<li>
+<p>Once the container has stopped, you can remove it by using the docker rm command.</p>
+<p><code>docker rm &lt;the-container-id&gt;</code></p>
+</li>
+</ol>
+<p>Note</p>
+<p>You can stop and remove a container in a single command by adding the force flag to the docker rm command. For example:</p>
+<pre><code>    `docker rm -f &lt;the-container-id&gt;`
+</code></pre>
+<h3 id="start-the-updated-app-container">Start the updated app container</h3>
+<ol>
+<li>
+<p>Now, start your updated app using the docker run command.</p>
+<p><code>docker run -dp 127.0.0.1:8080:8080 getting-started</code></p>
+</li>
+<li>
+<p>Refresh your browser on http://localhost:8080 and you should see your updated help text.</p>
+</li>
+</ol>
+<h3 id="summary">Summary</h3>
+<p>In this section, you learned how to update and rebuild an image, as well as how to stop and remove a container.</p>
+
+</body>
+</html>
